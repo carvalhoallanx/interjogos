@@ -1,0 +1,102 @@
+//jogo['1','2']
+"user strict"
+let explicacao;
+let travarJogo = false
+let s = 0
+let trocar = false
+let jogo
+
+/*  Troca de jogo ao passar o tempo, é ativado após mexer o mouse */
+function startTimer(){
+    if( travarJogo == true){
+        
+    }
+    else if(travarJogo == false){
+        timer()
+    }
+}
+
+/* Quando a variavel s chegar a 100 ele troca de jogo */
+function timer(){     
+        if (trocar == true){        
+            document.getElementById("imagensJogos").src = "bancoImagens/home/arquivos629f4db49abdc.png";
+            if(s <= 100){
+            s +=1
+            console.log(s)                
+            } 
+            else if(s > 100){              
+            s = 0                                                    
+            trocar = false
+            }                        
+        }                        
+        if(trocar == false ){        
+            document.getElementById("imagensJogos").src = "bancoImagens/home/arquivos629f4db499dbf.png";
+            if(s <= 100){
+            s +=1    
+            console.log(s)        
+            }
+            else if (s > 100){
+            s = 0 
+            trocar = true                                                          
+            }
+        }       
+}
+        
+// Inicializar Jogo
+//tela_de_jogos = [1,2,3]
+let img1 = "ft1" //Logo do Jogo da memoria
+let img2 = "ft2" //Logo do Jogo da memoria
+let img = img1 // variavel que recebe nome do jogo
+function trocarJogo() {
+    travarJogo = true     
+    if (img == img1) { 
+        img = img2 // Trocando para o img2
+        document.getElementById("imagensJogos").src = "bancoImagens/home/arquivos629f4db499dbf.png";
+    }
+    else if (img == img2) {
+        img = img1 // Trocando para o img1
+        document.getElementById("imagensJogos").src = "bancoImagens/home/arquivos629f4db49abdc.png";
+    }
+}
+
+// Fechar a explicaçao do jogo
+function fecharExplicacao() {
+    document.getElementById("sobreJogo").style.opacity = "0";
+    explicacao = document.getElementById("descricao").innerHTML = ' ';    
+}
+
+definir = true
+
+// Quando clicar no jogo fica selecionado
+function definirJogo(){   
+    travarJogo = true    
+    if (img == img1 && definir == true){
+        document.getElementById("imagensJogos").src = "bancoImagens/home/arquivos629f4db49abdc.png"; 
+        document.getElementById("imagensJogos").style.opacity = '100%';
+        document.getElementById("imagensJogos").style.width = '350px';
+        document.getElementById("imagensJogos").style.height = '350px';
+        definir = false
+    }
+    
+    else if (img == img2 && definir == true){
+        document.getElementById("imagensJogos").src = "bancoImagens/home/arquivos629f4db499dbf.png"; 
+        document.getElementById("imagensJogos").style.opacity = '100%';
+        document.getElementById("imagensJogos").style.width = '350px';
+        document.getElementById("imagensJogos").style.height = '350px';
+        definir = false
+    }
+    else{
+        document.getElementById("imagensJogos").style.opacity = '50%';
+        document.getElementById("imagensJogos").style.width = '50%';
+        document.getElementById("imagensJogos").style.height = '78%';
+        definir = true
+        travarJogo = false
+    }
+}    
+
+
+
+
+
+
+
